@@ -11,6 +11,10 @@ Testy sprawdzają:
 * Czy program zwraca `0` czy kod błędu (dowolny niezerowy)
 * Jeśli kod jest `0` to czy `stderr` jest pusty
 
+## Błędy
+
+* `xargs exitcode: A, should be B`: program `xargs` zmienia kody błędów, np. `1` przechodzi na `123`. Zobacz [listę kodów](man7.org/linux/man-pages/man1/xargs.1.html#EXIT_STATUS).
+
 ## Dodawanie testów
 
 1. Dopisz nazwę testu w `generate-outputs.sh`
