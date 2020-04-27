@@ -59,11 +59,12 @@ for test in `find "${TESTS_DIR}" -type f -name "${NAME_PATTERN}.args" ! -name '#
     if [ "$xargs_exitcode" -eq 0 ] && [ -s "${TMP_DIR}/${basename}.err" ]
     then
         RC=1
-        printf "${BOLD_RED}[ ERROR: exitcode 0, but .err not empty ]${COLOR_RESET}\n"
+        printf "${BOLD_RED}[ ERROR: exit code 0, but stderr not empty ]${COLOR_RESET}\n"
     elif [ $diff_xargs_exitcode -ne 0 ]
     then
         RC=1
-        printf "${BOLD_RED}[ ERROR: wrong xargs exitcode: $xargs_exitcode ]${COLOR_RESET}\n"
+        correct_xarg=$(<"${OUTPUTS_DIR}/${basename}.xargs-exitcode")
+        printf "${BOLD_RED}[ ERROR: xargs exitcode: ${xargs_exitcode}, should be ${correct_xarg} ]${COLOR_RESET}\n"
     elif [ $diff_out_exitcode -ne 0 ]
     then
         RC=1
