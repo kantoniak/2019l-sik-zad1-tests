@@ -13,6 +13,8 @@ Testy sprawdzają:
 
 ## Błędy
 
+Wyjścia `stdout` i `stderr` są zapisywane do folderu tymczasowego, podanego w konsoli. W przypadku błędu skrypt ich nie usuwa.
+
 * `xargs exitcode: A, should be B`: program `xargs` zmienia kody błędów, np. `1` przechodzi na `123`. Zobacz [listę kodów](http://man7.org/linux/man-pages/man1/xargs.1.html#EXIT_STATUS).
 
 ## Dodawanie testów
